@@ -1,4 +1,4 @@
-import CrudRequest from '@/arch/CrudRequest';
+import CrudRequest from '@/arch/CrudRequestAlova';
 
 class FruitsApi extends CrudRequest {
   static baseUrl() {

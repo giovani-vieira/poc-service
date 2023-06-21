@@ -11,13 +11,13 @@ class FruitsService {
     this.fruitsStore = useFruitsStore;
   }
 
-  async listFruits() {
-    await this.fruitsStore.getAllFruits();
+  listFruits() {
+    this.fruitsStore.getAllFruits();
     return this.fruitsStore.fruitList;
   }
 
-  async getFruitById(id) {
-    await this.fruitsStore.getFruitById(id);
+  getFruitById(id) {
+    this.fruitsStore.getFruitById(id);
   }
 
   getListFruits() {
@@ -38,6 +38,10 @@ class FruitsService {
 
   clearFruit() {
     return this.fruitsStore.fruit = null;
+  }
+
+  getLoading() {
+    return this.fruitsStore.loading;
   }
 
 }

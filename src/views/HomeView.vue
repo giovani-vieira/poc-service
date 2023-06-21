@@ -47,9 +47,10 @@
       Fruta selecionada: {{ fruitsService.getFruit() }}
     </div>
     
-    <input type="text" @input="fruitsService.setFruit($event.target.value)" />
-    {{ fruitsService.getTest() }}
+    <!-- <input type="text" @input="fruitsService.setFruit($event.target.value)" />
+    {{ fruitsService.getTest() }} -->
   </div>
+
 </template>
 
 <script>
@@ -59,11 +60,6 @@ export default {
 
   inject: ['fruitsService'],
 
-  data() {
-    return {
-      dataList: [],
-    }
-  },
 
   computed: {
     fruitModel: {
@@ -77,11 +73,8 @@ export default {
   },
 
   methods: {
-    async listFruits() {
-      this.dataList = await this.fruitsService.listFruits()
-    },
-    async getFruitById(id) {
-      await this.fruitsService.getFruitById(id)
+    getFruitById(id) {
+      this.fruitsService.getFruitById(id)
     }
   },
 }

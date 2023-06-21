@@ -1,5 +1,4 @@
 import http from '@/arch/HttpService';
-
 class CrudRequest {
   static baseUrl() {
     throw Error('Method baseUrl not implemented');

@@ -1,4 +1,5 @@
 import { Server, Model } from 'miragejs'
+import { Response } from 'miragejs';
 
 export function makeServer({ environment = "development" } = {}) {
   
@@ -25,17 +26,21 @@ export function makeServer({ environment = "development" } = {}) {
     routes() {
       this.urlPrefix = 'http://localhost:7269';
       this.namespace = "/api";
+      this.timing = 2000
 
       this.get("/fruits", (schema) => {
-        return schema.fruits.all();
+        //return schema.fruits.all();
+        //return new Response(401, { some: 'header' }, { errors: [ 'name cannot be blank'] });
+        return new Response(200, { some: 'header' }, { data: schema.fruits.all().models });
       });
 
     
       this.get("/fruits/:id", (schema, request) => {
         let id = request.params.id
-        return schema.fruits.find(id)
+        // return schema.fruits.find(id)
+        console.log(schema.fruits.find(id) )
+        return new Response(200, { some: 'header' }, { data: schema.fruits.find(id) });
       });
-
     }
   })
   
